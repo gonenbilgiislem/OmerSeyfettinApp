@@ -16,9 +16,8 @@ namespace OmerSeyfettinApp.Models
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<UserPosts> UserPosts { get; set; }
-        public virtual DbSet<Doc> Docs { get; set; }
-      //  public virtual DbSet<DataHelper> DataHelper { get; set; }
+      
+        //  public virtual DbSet<DataHelper> DataHelper { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -45,7 +44,5 @@ namespace OmerSeyfettinApp.Models
                 .HasForeignKey(e => e.UserId);
 
         }
-
-        public System.Data.Entity.DbSet<OmerSeyfettinApp.Models.RichEditData> RichEditDatas { get; set; }
     }
 }

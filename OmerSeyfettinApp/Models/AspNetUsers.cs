@@ -14,7 +14,6 @@ namespace OmerSeyfettinApp.Models
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetUserLogins = new HashSet<AspNetUserLogins>();
             AspNetRoles = new HashSet<AspNetRoles>();
-            UserPosts = new HashSet<UserPosts>();
         }
 
         public string Id { get; set; }
@@ -58,10 +57,6 @@ namespace OmerSeyfettinApp.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRoles> AspNetRoles { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserPosts> UserPosts { get; set; }
-
 
     }
 }
