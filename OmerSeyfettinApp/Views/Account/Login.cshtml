@@ -1,7 +1,7 @@
 ﻿@using OmerSeyfettinApp.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Oturum aç";
+    ViewBag.Title = "Lütfen Oturum açın";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -11,7 +11,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Yerel bir hesapla oturum açın.</h4>
+                @*<h4>Oturum açın.</h4>*@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Oturum aç" class="btn btn-default" />
+                        <input type="submit" value="Oturum aç" class="btn btn-success" />
                     </div>
                 </div>
                 <p>

@@ -5,18 +5,18 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
         <li>
-            @Html.ActionLink("Merhaba " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Merhaba " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class="nav-link",title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Oturumu kapat</a></li>
+        <li><a class ="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Oturumu kapat</a></li>
     </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Kaydol", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Oturum aç", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li class="nav-item">@Html.ActionLink("Kaydol", "Register", "Account", routeValues: null, htmlAttributes: new { @class="nav-link", id = "registerLink"})</li>
+        <li class="nav-item">@Html.ActionLink("Oturum aç", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "nav-link",id="loginLink" })</li>
     </ul>
 }
