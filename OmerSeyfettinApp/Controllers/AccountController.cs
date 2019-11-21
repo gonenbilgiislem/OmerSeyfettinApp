@@ -74,6 +74,18 @@ namespace OmerSeyfettinApp.Controllers
                 return View(model);
             }
 
+            var user = await UserManager.FindByNameAsync(model.Username);
+            if (user != null)
+            {
+                if (!await UserManager.IsPhoneNumberConfirmedAsync(user.Id))
+                {
+                    ViewBag.errorMessage = "Telefonunuzu onaylamadan giriş yapamassınız.";
+
+                    return View("Error");
+                }
+            }
+
+
             // Hesap kilitlenirken oturum açma hataları hesaplanmaz
             // Parola hatalarının hesap kilitlenmesini tetiklemesini sağlmak için değeri shouldLockout: true olarak değiştirin
 
@@ -91,6 +103,7 @@ namespace OmerSeyfettinApp.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Geçersiz oturum açma girişimi.");
+
                     return View(model);
             }
         }
@@ -160,7 +173,10 @@ namespace OmerSeyfettinApp.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                   
+                    //TODO : Otomatik Girişi Engelledik.
+
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // Hesap onayını ve parola sıfırlamayı etkinleştirme hakkında daha fazla bilgi için lütfen https://go.microsoft.com/fwlink/?LinkID=320771 adresini ziyaret edin.
                     // Bu bağlantı ile bir e-posta yollayın
